@@ -1,6 +1,7 @@
 import Form from './components/form.jsx'
 import ChildComponent from './components/child-component.jsx'
 import './App.css'
+import FetchData from './components/fetch-data.jsx'
 
 function App() {
   const name = 'Intensive ReactJS'
@@ -11,6 +12,7 @@ function App() {
     <>
       <Form/>
       <ChildComponent stringProp={name} numberProp={number} booleanProp={started}/>
+      <FetchData/>
     </>
   )
 }

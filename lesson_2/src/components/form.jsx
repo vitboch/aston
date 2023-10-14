@@ -4,8 +4,10 @@ class Form extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      inputValue: ''
+      inputValue: '',
+      isSubmitDisabled: false
     }
+    this.inputRef = React.createRef()
   }
 
   componentDidMount() {
@@ -20,15 +22,19 @@ class Form extends Component {
     console.log('componentWillUnmount')
   }
 
-  handleChange = (event) => {
-    this.setState({inputValue: event.target.value})
+  handleChange = event => {
+    const inputValue = event.target.value
+    const isSubmitDisabled = inputValue.includes('реакт')
+    this.setState({inputValue, isSubmitDisabled})
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault()
     console.log('Form submitted with value:', this.state.inputValue)
     this.setState({inputValue: ''})
   }
+
+  handleFocus = () => this.inputRef.current.focus()
 
   render() {
     console.log('render')
@@ -39,8 +45,14 @@ class Form extends Component {
           type="text"
           value={this.state.inputValue}
           onChange={this.handleChange}
+          ref={this.inputRef}
         />
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={this.state.isSubmitDisabled}>
+          Submit
+        </button>
+        <button type="button" onClick={this.handleFocus}>
+          Set Focus
+        </button>
       </form>
     )
   }
