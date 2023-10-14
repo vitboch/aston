@@ -2,7 +2,7 @@
 
 ## Install dependencies
 
-cd lesson_1 && npm i
+cd lesson_2 && npm i
 
 ## Run dev server
 
