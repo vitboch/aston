@@ -20,13 +20,14 @@ class Form extends Component {
     console.log('componentWillUnmount')
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({inputValue: event.target.value})
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault()
-    console.log('Form submitted with value:', this.state.inputValue)
+    const {inputValue} = this.state
+    console.log('Form submitted with value:', inputValue)
     this.setState({inputValue: ''})
   }
 
