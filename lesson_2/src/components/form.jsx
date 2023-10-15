@@ -30,7 +30,8 @@ class Form extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log('Form submitted with value:', this.state.inputValue)
+    const { inputValue } = this.state
+    console.log('Form submitted with value:', inputValue)
     this.setState({inputValue: ''})
   }
 
